@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="nickname-container">
+  <div class="nickname-box">
+    <label for="nickname-input">Lütfen bir kullanıcı adı giriniz:</label><br>
+    <input type="text" id="nickname-input" placeholder="Örn: mucahit123">
+    <button onclick="submitNickname()">Başla</button>
+  </div>
+</div>
+<div class="container">
+    <!-- Ana Sayfa -->
+    <div class="card page active" id="page-main">
+      <h1>Arapça Quiz</h1>
+      <ul class="course-list">
+        <li><button data-target="page-course" data-course="ARA302">ARA 302</button></li>
+        <li><button data-target="page-course" data-course="ARA303">ARA 303</button></li>
+        <li><button data-target="page-course" data-course="ARA304">ARA 304</button></li>
+      </ul>
+    </div>
+
+    <!-- Kurs Sayfası -->
+    <div class="card page" id="page-course">
+      <header>
+        <button class="back-btn">&larr;</button>
+        <h2 id="course-title">ARA 302</h2>
+      </header>
+      <div class="actions">
+        <button data-target="page-learn">Öğren</button>
+        <button data-target="page-test">Test Et</button>
+        <button data-target="page-drag">Sürükle Bırak</button>
+        <button data-target="page-search">Ara</button>
+      </div>
+    </div>
+
+    <!-- Öğren -->
+    <div class="card page" id="page-learn">
+      <header>
+        <button class="back-btn">&larr;</button>
+        <h2>Öğren</h2>
+      </header>
+      <div class="content">
+        <p class="word-display">Kelime</p>
+        <button id="shuffle-learn">Karıştır 🔄</button>
+      </div>
+    </div>
+
+    <!-- Test Et -->
+    <div class="card page" id="page-test">
+      <header>
+        <button class="back-btn">&larr;</button>
+        <h2>Test Et</h2>
+      </header>
+      <div class="content">
+        <div class="direction">
+          <label><input type="radio" name="dir" value="TR-ARA" checked> TR → ARA</label>
+          <label><input type="radio" name="dir" value="ARA-TR"> ARA → TR</label>
+        </div>
+        <div class="question">
+          <p class="q-text"></p>
+          <ul class="options"></ul>
+        </div>
+        <button id="shuffle-test">Yeni Soru 🔄</button>
+        <div class="streak">🔥 <span id="streak-count">0</span></div>
+        <p id="streak-msg" class="streak-msg"></p>
+        <div class="best-streak">En Yüksek: <span id="best-streak-count">0</span></div>
+      </div>
+    </div>
+
+    
+    <!-- Sürükle Bırak -->
+    <div class="card page" id="page-drag">
+      <header>
+        <button class="back-btn">&larr;</button>
+        <h2>Sürükle Bırak</h2>
+      </header>
+      <div class="content">
+        <div class="direction">
+          <label><input type="radio" name="drag-dir" value="TR-ARA" checked> TR → ARA</label>
+          <label><input type="radio" name="drag-dir" value="ARA-TR"> ARA → TR</label>
+        </div>
+        <div class="match-container">
+          <ul id="drag-items"></ul>
+          <ul id="drop-zones"></ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Ara -->
+    <div class="card page" id="page-search">
+      <header>
+        <button class="back-btn">&larr;</button>
+        <h2>Ara</h2>
+      </header>
+      <div class="content">
+        <input type="text" id="search-input" placeholder="Kelime girin..." />
+        <button id="btn-search">Ara 🔍</button>
+        <div id="search-result"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
